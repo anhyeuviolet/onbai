@@ -247,11 +247,11 @@ $contents .= "
                 <td>" . $lang_module['trueanwser'] . "</td>
                 <td>
                     <select name=\"trueanwser\" id=\"trueanwser\" style=\"width: 212px\" class=\"form-control\">
-                        <option selected=\"selected\" value=\"0\">" . $lang_module['select_anwser'] . "</option>
-                        <option value=\"1\">" . $lang_module['anwser'] . " A</option>
-                        <option value=\"2\">" . $lang_module['anwser'] . " B</option>
-                        <option value=\"3\">" . $lang_module['anwser'] . " C</option>
-                        <option value=\"4\">" . $lang_module['anwser'] . " D</option>
+                        <option value=\"0\">" . $lang_module['select_anwser'] . "</option>
+                        <option value=\"1\"" . ($rowcontent['trueanwser'] == 1 ? " selected=\"selected\"" : "") . ">" . $lang_module['anwser'] . " A</option>
+                        <option value=\"2\"" . ($rowcontent['trueanwser'] == 2 ? " selected=\"selected\"" : "") . ">" . $lang_module['anwser'] . " B</option>
+                        <option value=\"3\"" . ($rowcontent['trueanwser'] == 3 ? " selected=\"selected\"" : "") . ">" . $lang_module['anwser'] . " C</option>
+                        <option value=\"4\"" . ($rowcontent['trueanwser'] == 4 ? " selected=\"selected\"" : "") . ">" . $lang_module['anwser'] . " D</option>
                     </select>
                 </td>
             </tr>

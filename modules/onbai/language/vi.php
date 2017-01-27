@@ -31,3 +31,4 @@ $lang_module['false_anwser'] = "Bạn đã chọn sai phương án hãy chọn l
 $lang_module['true_anwser'] = "Bạn đã trả lời rất chính xác. Chúc mừng bạn được sang câu hỏi tiếp theo!";
 $lang_module['true_anwser_test'] = "Chúc mừng bạn đã trả lời chính xác";
 $lang_module['look'] = "Xem trả lời";
+$lang_module['compulsory_end'] = "BẠN ĐÃ TRẢ LỜI HẾT CÁC CÂU HỎI";
