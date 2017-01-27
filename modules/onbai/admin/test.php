@@ -14,7 +14,7 @@ if (!defined('NV_IS_ONBAI_ADMIN')) {
 
 $page_title = $lang_module['test'];
 
-$xtpl = new XTemplate("test.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_name);
+$xtpl = new XTemplate("test.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] . "/modules/" . $module_file);
 $xtpl->assign('LANG', $lang_module);
 $xtpl->assign('LINK_ADD', "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=addtest");
 $xtpl->assign('URL_DEL_BACK', "index.php?" . NV_NAME_VARIABLE . "=" . $module_name);
@@ -31,8 +31,6 @@ while ($rs = $result->fetch()) {
     $xtpl->assign('id', $rs['id']);
     $xtpl->assign('title', $rs['title']);
 
-    $class = ($i % 2) ? " class=\"second\"" : "";
-    $xtpl->assign('class', $class);
     $xtpl->assign('URL_DEL_ONE', $link_del . "&id=" . $rs['id']);
     $xtpl->assign('URL_EDIT', $link_edit . "&id=" . $rs['id']);
     $xtpl->parse('main.row');

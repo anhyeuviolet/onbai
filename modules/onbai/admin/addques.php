@@ -35,7 +35,6 @@ if ($id == 0) {
     $rowcontent['title'] = $row['title'];
     $rowcontent['quession'] = $row['quession'];
     $rowcontent['anwser'] = $row['anwser'];
-
 }
 
 //sua cau hoi
@@ -102,7 +101,8 @@ if ($error) {
 
 $contents .= "
 <form method=\"post\" name=\"add_pic\">
-    <table class=\"tab1\">
+    <div class=\"table-responsive\">
+    <table class=\"table table-striped table-bordered table-hover\">
         <thead>
             <tr>
                 <td colspan=\"2\">
@@ -112,11 +112,11 @@ $contents .= "
         </thead>
         <tbody>
             <tr>
-                <td style=\"width: 150px; background: #eee;\">
+                <td style=\"width: 150px;\">
                     " . $lang_module['quession_title'] . "
                 </td>
-                <td style=\"background: #eee;\">
-                    <input name=\"title\" style=\"width: 470px;\" value=\"" . $rowcontent['title'] . "\" type=\"text\">
+                <td>
+                    <input name=\"title\" style=\"width: 470px;\" value=\"" . $rowcontent['title'] . "\" type=\"text\" class=\"form-control\">
                 </td>
             </tr>
             <tr>
@@ -125,9 +125,9 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('ques', '810px', '300px', $rowcontent['quession']);
+    $contents .= nv_aleditor('ques', '100%', '300px', $rowcontent['quession']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['quession'] . "\" name=\"ques\" id=\"ques\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['quession'] . "\" name=\"ques\" id=\"ques\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
@@ -138,16 +138,16 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('anwser', '810px', '300px', $rowcontent['anwser']);
+    $contents .= nv_aleditor('anwser', '100%', '300px', $rowcontent['anwser']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['anwser'] . "\" name=\"anwser\" id=\"anwser\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['anwser'] . "\" name=\"anwser\" id=\"anwser\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
             </tr>
             <tr>
-                <td colspan=\"2\" align=\"center\" style=\"background: #eee;\">\n
-                    <input name=\"confirm\" value=\"" . $lang_module['save'] . "\" type=\"submit\">\n";
+                <td colspan=\"2\" align=\"center\">\n
+                    <input name=\"confirm\" value=\"" . $lang_module['save'] . "\" type=\"submit\" class=\"btn btn-primary\">\n";
 if ($id == 0)
     $contents .= "<input type=\"hidden\" name=\"add\" id=\"add\" value=\"1\">\n";
 else
@@ -157,6 +157,7 @@ $contents .= "<span name=\"notice\" style=\"float: right; padding-right: 50px; c
             </tr>\n
         </tbody>\n
     </table>\n
+    </div>\n
 </form>\n";
 
 include (NV_ROOTDIR . "/includes/header.php");

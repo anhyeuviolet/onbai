@@ -31,8 +31,6 @@ while ($rs = $result->fetch()) {
     $xtpl->assign('id', $rs['id']);
     $xtpl->assign('title', $rs['title']);
 
-    $class = ($i % 2) ? " class=\"second\"" : "";
-    $xtpl->assign('class', $class);
     $xtpl->assign('URL_DEL_ONE', $link_del . "&id=" . $rs['id']);
     $xtpl->assign('URL_EDIT', $link_edit . "&id=" . $rs['id']);
     $xtpl->parse('main.row');

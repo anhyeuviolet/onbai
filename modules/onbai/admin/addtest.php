@@ -15,6 +15,7 @@ if (!defined('NV_IS_ONBAI_ADMIN')) {
 if (defined('NV_EDITOR')) {
     require_once (NV_ROOTDIR . '/' . NV_EDITORSDIR . '/' . NV_EDITOR . '/nv.php');
 }
+
 //khoi tao gia tri
 $contents = "";
 $error = "";
@@ -47,7 +48,6 @@ if ($id == 0) {
     $rowcontent['explain_true'] = $row['explain_true'];
     $rowcontent['explain_false'] = $row['explain_false'];
     $rowcontent['trueanwser'] = $row['trueanwser'];
-
 }
 
 //sua cau hoi
@@ -58,8 +58,8 @@ if ($nv_Request->get_int('edit', 'post', 0) == 1) {
     $rowcontent['anwserb'] = $nv_Request->get_string('anwserb', 'post', '');
     $rowcontent['anwserc'] = $nv_Request->get_string('anwserc', 'post', '');
     $rowcontent['anwserd'] = $nv_Request->get_string('anwserd', 'post', '');
-    $rowcontent['explain_true'] = filter_text_textarea('explain_true', 'post', '');
-    $rowcontent['explain_false'] = filter_text_textarea('explain_false', 'post', '');
+    $rowcontent['explain_true'] = $nv_Request->get_textarea('explain_true', '', NV_ALLOWED_HTML_TAGS);
+    $rowcontent['explain_false'] = $nv_Request->get_textarea('explain_false', '', NV_ALLOWED_HTML_TAGS);
     $rowcontent['trueanwser'] = $nv_Request->get_int('trueanwser', 'post', '');
     foreach ($rowcontent as $key => $data) {
         $query = $db->query("UPDATE " . NV_PREFIXLANG . "_" . $module_data . "_test SET " . $key . " = " . $db->quote($data) . " WHERE id =" . $id);
@@ -82,8 +82,8 @@ if ($nv_Request->get_int('add', 'post', 0) == 1) {
     $rowcontent['anwserb'] = $nv_Request->get_string('anwserb', 'post', '');
     $rowcontent['anwserc'] = $nv_Request->get_string('anwserc', 'post', '');
     $rowcontent['anwserd'] = $nv_Request->get_string('anwserd', 'post', '');
-    $rowcontent['explain_false'] = filter_text_textarea('explain_false', 'post', '');
-    $rowcontent['explain_true'] = filter_text_textarea('explain_true', 'post', '');
+    $rowcontent['explain_false'] = $nv_Request->get_textarea('explain_false', '', NV_ALLOWED_HTML_TAGS);
+    $rowcontent['explain_true'] = $nv_Request->get_textarea('explain_true', '', NV_ALLOWED_HTML_TAGS);
     $rowcontent['trueanwser'] = $nv_Request->get_int('trueanwser', 'post', '');
 
     if ($rowcontent['title'] == '') {
@@ -135,7 +135,8 @@ if ($error) {
 
 $contents .= "
 <form method=\"post\" name=\"add_pic\">
-    <table class=\"tab1\">
+    <div class=\"table-responsive\">
+    <table class=\"table table-striped table-bordered table-hover\">
         <thead>
             <tr>
                 <td colspan=\"2\">
@@ -145,11 +146,11 @@ $contents .= "
         </thead>
         <tbody>
             <tr>
-                <td style=\"width: 150px; background: #eee;\">
+                <td style=\"width: 250px;\">
                     " . $lang_module['quession_title'] . "
                 </td>
-                <td style=\"background: #eee;\">
-                    <input name=\"title\" style=\"width: 470px;\" value=\"" . $rowcontent['title'] . "\" type=\"text\">
+                <td>
+                    <input name=\"title\" style=\"width: 470px;\" value=\"" . $rowcontent['title'] . "\" type=\"text\" class=\"form-control\">
                 </td>
             </tr>
             <tr>
@@ -158,9 +159,9 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('ques', '810px', '200px', $rowcontent['quession']);
+    $contents .= nv_aleditor('ques', '100%', '200px', $rowcontent['quession']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['quession'] . "\" name=\"ques\" id=\"ques\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['quession'] . "\" name=\"ques\" id=\"ques\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
@@ -172,9 +173,9 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('anwsera', '810px', '200px', $rowcontent['anwsera']);
+    $contents .= nv_aleditor('anwsera', '100%', '200px', $rowcontent['anwsera']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['anwsera'] . "\" name=\"anwsera\" id=\"anwsera\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['anwsera'] . "\" name=\"anwsera\" id=\"anwsera\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
@@ -186,9 +187,9 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('anwserb', '810px', '200px', $rowcontent['anwserb']);
+    $contents .= nv_aleditor('anwserb', '100%', '200px', $rowcontent['anwserb']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['anwserb'] . "\" name=\"anwserb\" id=\"anwserb\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['anwserb'] . "\" name=\"anwserb\" id=\"anwserb\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
@@ -200,9 +201,9 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('anwserc', '810px', '200px', $rowcontent['anwserc']);
+    $contents .= nv_aleditor('anwserc', '100%', '200px', $rowcontent['anwserc']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['anwserc'] . "\" name=\"anwserc\" id=\"anwserc\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['anwserc'] . "\" name=\"anwserc\" id=\"anwserc\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
@@ -214,9 +215,9 @@ $contents .= "
             <tr>
                 <td colspan=\"2\">";
 if (defined('NV_EDITOR') and function_exists('nv_aleditor')) {
-    $contents .= nv_aleditor('anwserd', '810px', '200px', $rowcontent['anwserd']);
+    $contents .= nv_aleditor('anwserd', '100%', '200px', $rowcontent['anwserd']);
 } else {
-    $contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['anwserd'] . "\" name=\"anwserd\" id=\"anwserd\" cols=\"20\" rows=\"15\"></textarea>\n";
+    $contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['anwserd'] . "\" name=\"anwserd\" id=\"anwserd\" cols=\"20\" rows=\"15\"></textarea>\n";
 }
 $contents .= "
                 </td>
@@ -227,7 +228,7 @@ $contents .= "
 
             <tr>
                 <td colspan=\"2\">";
-$contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['explain_true'] . "\" name=\"explain_true\" id=\"explain_true\" cols=\"20\" rows=\"15\"></textarea>\n";
+$contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['explain_true'] . "\" name=\"explain_true\" id=\"explain_true\" cols=\"20\" rows=\"15\" class=\"form-control\"></textarea>\n";
 $contents .= "
                 </td>
             </tr>
@@ -237,7 +238,7 @@ $contents .= "
             
             <tr>
                 <td colspan=\"2\">";
-$contents .= "<textarea style=\"width: 810px\" value=\"" . $rowcontent['explain_false'] . "\" name=\"explain_false\" id=\"explain_false\" cols=\"20\" rows=\"15\"></textarea>\n";
+$contents .= "<textarea style=\"width: 100%\" value=\"" . $rowcontent['explain_false'] . "\" name=\"explain_false\" id=\"explain_false\" cols=\"20\" rows=\"15\" class=\"form-control\"></textarea>\n";
 $contents .= "
                 </td>
             </tr>
@@ -245,7 +246,7 @@ $contents .= "
             <tr>
                 <td>" . $lang_module['trueanwser'] . "</td>
                 <td>
-                    <select name=\"trueanwser\" id=\"trueanwser\" style=\"width: 212px\">
+                    <select name=\"trueanwser\" id=\"trueanwser\" style=\"width: 212px\" class=\"form-control\">
                         <option selected=\"selected\" value=\"0\">" . $lang_module['select_anwser'] . "</option>
                         <option value=\"1\">" . $lang_module['anwser'] . " A</option>
                         <option value=\"2\">" . $lang_module['anwser'] . " B</option>
@@ -256,8 +257,8 @@ $contents .= "
             </tr>
             
             <tr>
-                <td colspan=\"2\" align=\"center\" style=\"background: #eee;\">\n
-                    <input name=\"confirm\" value=\"" . $lang_module['save'] . "\" type=\"submit\">\n";
+                <td colspan=\"2\" align=\"center\">\n
+                    <input name=\"confirm\" value=\"" . $lang_module['save'] . "\" type=\"submit\" class=\"btn btn-primary\">\n";
 if ($id == 0)
     $contents .= "<input type=\"hidden\" name=\"add\" id=\"add\" value=\"1\">\n";
 else
@@ -267,6 +268,7 @@ $contents .= "<span name=\"notice\" style=\"float: right; padding-right: 50px; c
             </tr>\n
         </tbody>\n
     </table>\n
+    </div>\n
 </form>\n";
 
 include (NV_ROOTDIR . "/includes/header.php");
