@@ -1,15 +1,16 @@
 <?php
+
 /**
- * @Project NUKEVIET 3.0
- * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Project ONBAI 4.x
+ * @Author PHAN TAN DUNG (phantandung92@gmail.com)
+ * @Copyright (C) 2014 PHAN TAN DUNG. All rights reserved
  * @Language Vietnamese
- * @Createdate Dec 3, 2010  11:30:02 AM 
+ * @License GNU/GPL version 2 or any later version
+ * @Createdate 1/21/2017, 10:56:09 PM
  */
- 
-if ( ! defined( 'NV_MAINFILE' ) )
-{
-    die( 'Stop!!!' );
+
+if (!defined('NV_MAINFILE')) {
+    die('Stop!!!');
 }
 
 $lang_translator['author'] = "VINADES.,JSC (contact@vinades.vn)";
@@ -30,4 +31,3 @@ $lang_module['false_anwser'] = "Bạn đã chọn sai phương án hãy chọn l
 $lang_module['true_anwser'] = "Bạn đã trả lời rất chính xác. Chúc mừng bạn được sang câu hỏi tiếp theo!";
 $lang_module['true_anwser_test'] = "Chúc mừng bạn đã trả lời chính xác";
 $lang_module['look'] = "Xem trả lời";
-?>

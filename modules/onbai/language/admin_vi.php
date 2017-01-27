@@ -1,15 +1,16 @@
 <?php
+
 /**
- * @Project NUKEVIET 3.0
- * @Author VINADES., JSC (contact@vinades.vn)
- * @Copyright (C) 2010 VINADES ., JSC. All rights reserved
+ * @Project ONBAI 4.x
+ * @Author PHAN TAN DUNG (phantandung92@gmail.com)
+ * @Copyright (C) 2014 PHAN TAN DUNG. All rights reserved
  * @Language Vietnamese
- * @Createdate Dec 3, 2010  11:30:02 AM 
+ * @License GNU/GPL version 2 or any later version
+ * @Createdate 1/21/2017, 10:56:09 PM
  */
- 
-if ( ! defined( 'NV_MAINFILE' ) )
-{
-    die( 'Stop!!!' );
+
+if (!defined('NV_MAINFILE')) {
+    die('Stop!!!');
 }
 
 $lang_translator['author'] = "VINADES.,JSC (contact@vinades.vn)";
@@ -35,15 +36,15 @@ $lang_module['select_anwser'] = 'Chọn một đáp án';
 $lang_module['ques_body'] = "Nội dung câu hỏi";
 $lang_module['anwser'] = "Đáp án";
 $lang_module['select'] = "Chọn";
-$lang_module['album_feature']='Chức năng';
-$lang_module['quession_title']='Tên câu hỏi';
-$lang_module['album_checkall']='Chọn tất cả';
-$lang_module['album_uncheckall']='Bỏ chọn tất cả';
+$lang_module['album_feature'] = 'Chức năng';
+$lang_module['quession_title'] = 'Tên câu hỏi';
+$lang_module['album_checkall'] = 'Chọn tất cả';
+$lang_module['album_uncheckall'] = 'Bỏ chọn tất cả';
 $lang_module['album_delete'] = "Xóa";
 $lang_module['album_add'] = "Thêm mới";
-$lang_module['album_error_file']='Hãy chọn ít nhất 1 albums để xóa';
-$lang_module['album_del_confirm']='Bạn có chắc muốn xóa không ?';
-$lang_module['edit']= "Sửa";
+$lang_module['album_error_file'] = 'Hãy chọn ít nhất 1 albums để xóa';
+$lang_module['album_del_confirm'] = 'Bạn có chắc muốn xóa không ?';
+$lang_module['edit'] = "Sửa";
 $lang_module['error_save'] = 'Vì một lí do nào đó mà dữ liệu không thể lưu được bạn hãy kiểm tra lại';
 $lang_module['error_full_title'] = 'Bạn chưa nhập vào tên câu hỏi';
 $lang_module['error_full_ques'] = 'Bạn chưa nhập vào nội dung câu hỏi';
@@ -51,4 +52,3 @@ $lang_module['error_full_anwser'] = 'Bạn chưa nhập vào đáp án của câ
 $lang_module['error_full_trueanwser'] = 'Bạn chưa chọn phương án trả lời đúng';
 $lang_module['explain_true'] = 'Giải thích cho câu đúng';
 $lang_module['explain_false'] = 'Giải thích cho câu sai';
-?>
