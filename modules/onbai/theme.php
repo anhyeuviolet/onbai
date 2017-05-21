@@ -20,8 +20,8 @@ if (!defined('NV_IS_MOD_ONBAI'))
  */
 function nv_theme_samples_main($sql_data, $now_page)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $module_data, $db;
-    $xtpl = new XTemplate("main.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file);
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $module_data, $db;
+    $xtpl = new XTemplate("main.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('URL_QUES', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name);
     $xtpl->assign('URL_TEST', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=test");
@@ -52,8 +52,8 @@ function nv_theme_samples_main($sql_data, $now_page)
  */
 function nv_theme_onbai_test($sql_data, $now_page)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $module_data, $db;
-    $xtpl = new XTemplate("test.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file);
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $module_data, $db;
+    $xtpl = new XTemplate("test.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('URL_QUES', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name);
     $xtpl->assign('URL_TEST', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=test");
@@ -93,8 +93,8 @@ function nv_theme_onbai_test($sql_data, $now_page)
  */
 function nv_theme_onbai_compulsory($sql_data, $id, $end)
 {
-    global $global_config, $module_name, $module_file, $lang_module, $module_config, $module_info, $module_data, $db;
-    $xtpl = new XTemplate("compulsory.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_file);
+    global $global_config, $module_name, $lang_module, $module_config, $module_info, $module_data, $db;
+    $xtpl = new XTemplate("compulsory.tpl", NV_ROOTDIR . "/themes/" . $module_info['template'] . "/modules/" . $module_info['module_theme']);
     $xtpl->assign('LANG', $lang_module);
     $xtpl->assign('URL_QUES', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name);
     $xtpl->assign('URL_TEST', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=test");
